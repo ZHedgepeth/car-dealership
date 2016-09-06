@@ -5,21 +5,23 @@
         public $make_model;
         public $price;
         public $miles;
-        function __construct($model_name, $cost, $mileage)
+        public $picture;
+        function __construct($model_name, $cost, $mileage, $image_path)
         {
             $this->make_model = $model_name;
             $this->price = $cost;
             $this->miles = $mileage;
+            $this->picture = $image_path;
         }
     }
 
-    $porsche = new Car("2014 Porsche 911", 114991, 7864);
-    $ford = new Car("2011 Ford F450", 55995, 14241);
-    $lexus = new Car("2013 Lexus RX 350", 44700, 20000);
-    $mercedes = new Car("Mercedes Benz CLS550", 39900, 37979);
-    $subaru = new Car("2016 Subaru Outback", 45999, 2975);
-    $unicorn = new Car("2500 BC Magical Unicorn", 3300000, 1000000);
-    $volvo = new Car("Volvo: Wallander Edition", 65000, 500);
+    $porsche = new Car("2014 Porsche 911", 114991, 7864, "img/porsche.jpg");
+    $ford = new Car("2011 Ford F450", 55995, 14241, "img/ford.jpg");
+    $lexus = new Car("2013 Lexus RX 350", 44700, 20000, "img/lexus.jpg");
+    $mercedes = new Car("Mercedes Benz CLS550", 39900, 37979, "img/mercedes.jpg");
+    $subaru = new Car("2016 Subaru Outback", 45999, 2975, "img/subaru.jpg");
+    $unicorn = new Car("2500 BC Magical Unicorn", 3300000, 1000000, "img/unicorn.jpg");
+    $volvo = new Car("Volvo: Wallander Edition", 65000, 500, "img/volvo.jpg");
 
     $cars = array($porsche, $ford, $lexus, $mercedes, $subaru, $unicorn, $volvo);
 
