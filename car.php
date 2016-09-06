@@ -31,7 +31,7 @@
         }
         function setMakeModel($new_make_model)
         {
-            $this->make_model = $new_make_model;
+            $this->make_model = (string) $new_make_model;
         }
         function setPrice($new_price)
         {
@@ -39,11 +39,11 @@
         }
         function setMiles($new_miles)
         {
-            $this->miles = (float) $new_miles;
+            $this->miles = (int) $new_miles;
         }
         function setPicture($new_picture)
         {
-            $this->picture = $new_picture;
+            $this->picture = (string) $new_picture;
         }
     }
 
@@ -78,18 +78,23 @@
     <h1>Zach and Rebecca's Car Dealership</h1>
     <div class="container">
         <?php
-            foreach ($cars_matching_search as $car) {
-                $car_make_model = $car->getMakeModel();
-                $car_price = $car->getPrice();
-                $car_miles = $car->getMiles();
-                $car_picture = $car->getPicture();
-                echo "<h3> $car_make_model </h3>";
-                echo "<img src='$car_picture'>";
-                echo "<ul>";
-                    echo "<li> $$car_price </li>";
-                    echo "<li> Miles: $car_miles </li>";
-                echo "</ul>";
-            }
+            if (empty($cars_matching_search)) {
+                echo "<h2> Sorry no cars for you today! </h2>";
+            } else {
+                foreach ($cars_matching_search as $car) {
+                    $car_make_model = $car->getMakeModel();
+                    $car_price = $car->getPrice();
+                    $car_miles = $car->getMiles();
+                    $car_picture = $car->getPicture();
+                    echo "<h3> $car_make_model </h3>";
+                    echo "<img src='$car_picture'>";
+                    echo "<ul>";
+                        echo "<li> $$car_price </li>";
+                        echo "<li> Miles: $car_miles </li>";
+                    echo "</ul>";
+                    }
+                }
+
         ?>
     </div>
 </body>
