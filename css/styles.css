@@ -1,0 +1,17 @@
+.container {
+  text-align: center;
+}
+
+h1 {
+  font-size: 5em;
+  color: #660000;
+}
+
+h3 {
+  color: #000066;
+}
+
+ul {
+  font-size: 1.4em;
+  list-style: none;
+}

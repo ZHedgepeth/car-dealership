@@ -2,16 +2,48 @@
 
     class Car
     {
-        public $make_model;
-        public $price;
-        public $miles;
-        public $picture;
+        private $make_model;
+        private $price;
+        private $miles;
+        private $picture;
         function __construct($model_name, $cost, $mileage, $image_path)
         {
             $this->make_model = $model_name;
             $this->price = $cost;
             $this->miles = $mileage;
             $this->picture = $image_path;
+        }
+        function getMakeModel()
+        {
+            return $this->make_model;
+        }
+        function getPrice()
+        {
+            return $this->price;
+        }
+        function getMiles()
+        {
+            return $this->miles;
+        }
+        function getPicture()
+        {
+            return $this->picture;
+        }
+        function setMakeModel($new_make_model)
+        {
+            $this->make_model = $new_make_model;
+        }
+        function setPrice($new_price)
+        {
+            $this->price = (float) $new_price;
+        }
+        function setMiles($new_miles)
+        {
+            $this->miles = (float) $new_miles;
+        }
+        function setPicture($new_picture)
+        {
+            $this->picture = $new_picture;
         }
     }
 
@@ -27,30 +59,38 @@
 
     $cars_matching_search = array();
     foreach ($cars as $car) {
-        if ($car->price < $_GET["price"]) {
+        if (($car->getPrice() < $_GET["price"]) && ($car->getMiles() < $_GET["miles"])) {
             array_push($cars_matching_search, $car);
         }
     }
+
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
     <title>Zach and Rebecca's Car Dealership's Homepage</title>
 </head>
 <body>
     <h1>Zach and Rebecca's Car Dealership</h1>
-    <ul>
+    <div class="container">
         <?php
             foreach ($cars_matching_search as $car) {
-                echo "<li> $car->make_model </li>";
+                $car_make_model = $car->getMakeModel();
+                $car_price = $car->getPrice();
+                $car_miles = $car->getMiles();
+                $car_picture = $car->getPicture();
+                echo "<h3> $car_make_model </h3>";
+                echo "<img src='$car_picture'>";
                 echo "<ul>";
-                    echo "<li> $$car->price </li>";
-                    echo "<li> Miles: $car->miles </li>";
+                    echo "<li> $$car_price </li>";
+                    echo "<li> Miles: $car_miles </li>";
                 echo "</ul>";
             }
         ?>
-
+    </div>
 </body>
 </html>

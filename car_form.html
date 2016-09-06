@@ -3,15 +3,20 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
     <title>Find Your Ride</title>
 </head>
 <body>
     <div class="container">
         <h1>Find Your Special Vehicle or Magical Creature</h1>
-        <form action="Car.php">
+        <form action="car.php">
             <div class="form-group">
                 <label for="price">What is the most you're willing to pay??</label>
                 <input id="price" name="price" class="form-control" type="number">
+            </div>
+            <div class="form-group">
+                <label for="miles">How well traveled do you like your vehicle.. ps.. more the merrier?</label>
+                <input id="miles" name="miles" class="form-control" type="number">
             </div>
             <button type="submit" class="btn-success">Car Me!</button>
         </form>
